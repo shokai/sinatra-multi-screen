@@ -32,4 +32,13 @@ cometio.on("connect", function(session){
     tv.$("#range_seek").val( range_seek.val() );
     tv.$("#range_seek").change();
   });
+
+  tv.on("seek", function(time){
+    $("#text_seek").val(time);
+    range_seek.val(time);
+  });
+
+  tv.on("get_duration", function(duration){
+    range_seek.attr("max", duration);
+  });
 });

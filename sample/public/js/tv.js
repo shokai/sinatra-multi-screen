@@ -1,5 +1,6 @@
 var cometio = new CometIO().connect();
-new MultiScreen(cometio, {type: "tv"});
+var screen = new MultiScreen(cometio, {type: "tv"});
+var remote = screen.remote;
 
 cometio.on("connect", function(session){
   console.log("connect!! "+session);
@@ -15,8 +16,10 @@ var onYouTubePlayerReady = function(id){
 var onYouTubeStateChange = function(status){
   console.log("status changed:"+status);
   switch(status){
-  case 5:
-    $("range_seek").attr("max", youtube.getDuration());
+  case 1:
+    var duration = youtube.getDuration();
+    $("#range_seek").attr("max", duration);
+    remote.emit("get_duration", duration);
     break;
   };
 };
@@ -66,6 +69,7 @@ $(function(){
       var time = youtube.getCurrentTime();
       $("#range_seek").val(time);
       $("#text_seek").val(time);
+      remote.emit("seek", time);
     }
   }, 1000);
 });
