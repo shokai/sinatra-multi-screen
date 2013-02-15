@@ -4,6 +4,7 @@ var tv = screen.tv;
 
 cometio.on("connect", function(session){
   console.log("connect!! "+session);
+
   $("#btn_play").click(function(e){
     tv.$("#btn_play").click();
   });
@@ -14,8 +15,4 @@ cometio.on("connect", function(session){
   $("#btn_seekback").click(function(e){
     tv.$("#btn_seekback").click();
   });
-
-});
-
-$(function(){
 });
