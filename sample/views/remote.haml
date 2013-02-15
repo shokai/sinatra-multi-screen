@@ -13,7 +13,14 @@
 %div#main
   %div#ctrl
     %p
+      %span video id :
+      %input#video_id{:type => :text, :value => 'Zhawgd0REhA'}
+      %input#btn_load.btn{:type => :button, :value => 'load'}
+    %p
       %input#btn_play.btn{:type => :button, :value => 'play'}
+    %p
+      %input#range_seek.range{:type => :range, :min => 0, :max => 1200}
+      %input#text_seek{:type => :text, :readonly => true, :size => 7}
     %p
       %input#btn_seekback.btn{:type => :button, :value => '<<'}
       %input#btn_seek.btn{:type => :button, :value => '>>'}
