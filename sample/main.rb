@@ -10,8 +10,6 @@ end
 
 CometIO.on :connect do |session|
   puts "new client <#{session}>"
-  CometIO.push :chat, {:name => "system", :message => "new client <#{session}>"}
-  CometIO.push :chat, {:name => "system", :message => "welcome <#{session}>"}, {:to => session}
 end
 
 before '/*' do
@@ -31,6 +29,7 @@ get '/remote' do
 end
 
 get '/search.json' do
+  content_type 'application/json'
   word = params[:word]
   begin
     YoutubeSearch.search(word).first.to_json
