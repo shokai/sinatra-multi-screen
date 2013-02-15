@@ -8,6 +8,6 @@ cometio.on("connect", function(session){
 
 $(function(){
   $("#btn_play").click(function(e){
-    tv.event("#btn_play", "click");
+    tv.$("#btn_play").click();
   });
 });

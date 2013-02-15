@@ -1,5 +1,5 @@
 var cometio = new CometIO().connect();
-var screen = new MultiScreen(cometio, {type: "tv"});
+new MultiScreen(cometio, {type: "tv"});
 
 cometio.on("connect", function(session){
   console.log("connect!! "+session);
