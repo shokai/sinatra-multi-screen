@@ -1,0 +1,16 @@
+- content_for :html_head do
+  %title= @title
+
+- content_for :html_foot do
+  %script{:src => "#{app_root}/js/jquery.js"}
+  %script{:src => cometio_js}
+  %script{:src => multi_screen_js}
+  %script{:src => "#{app_root}/js/remote.js"}
+
+%div#header
+  %a{:href => app_root} home
+  %h1 Remote
+%div#main
+  %div#ctrl
+    %p
+      %input#btn_play.btn{:type => :button, :value => 'play'}

@@ -1,0 +1,11 @@
+- content_for :html_head do
+  %title= @title
+
+%div#header
+  %h1= @title
+%div#main
+  %ul
+    %li
+      %a{:href => "#{app_root}/tv"} TV
+    %li
+      %a{:href => "#{app_root}/remote"} Remote
