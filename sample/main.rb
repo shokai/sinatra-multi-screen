@@ -30,6 +30,15 @@ get '/remote' do
   haml :remote
 end
 
+get '/search.json' do
+  word = params[:word]
+  begin
+    YoutubeSearch.search(word).first.to_json
+  rescue => e
+    throw :halt, [500, 'Internal Server Error']
+  end
+end
+
 get '/:source.css' do
   scss params[:source].to_sym
 end

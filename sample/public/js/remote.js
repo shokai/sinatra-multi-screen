@@ -1,19 +1,19 @@
-var cometio = new CometIO().connect();
-var screen = new MultiScreen(cometio, {type: "remote"});
+var io = new CometIO().connect();
+var screen = new MultiScreen(io, {type: "remote"});
 var tv = screen.tv;
 
-cometio.on("connect", function(session){
+io.on("connect", function(session){
   console.log("connect!! "+session);
 
-  $("#btn_load").click(function(e){
-    var id = $("#video_id").val();
-    tv.$("#video_id").val(id);
-    tv.$("#btn_load").click();
+  $("#btn_search").click(function(e){
+    var word = $("#text_search").val();
+    tv.$("#text_search").val(word);
+    tv.$("#btn_search").click();
   });
 
-  $("#video_id").keydown(function(e){
-    var id = $("#video_id").val();
-    tv.$("#video_id").val(id);
+  $("#text_search").keydown(function(e){
+    var word = $("#text_search").val();
+    tv.$("#text_search").val(word);
   });
 
   $("#btn_play").click(function(e){

@@ -1,8 +1,8 @@
-var cometio = new CometIO().connect();
-var screen = new MultiScreen(cometio, {type: "tv"});
+var io = new CometIO().connect();
+var screen = new MultiScreen(io, {type: "tv"});
 var remote = screen.remote;
 
-cometio.on("connect", function(session){
+io.on("connect", function(session){
   console.log("connect!! "+session);
 });
 
@@ -24,20 +24,23 @@ var onYouTubeStateChange = function(status){
   };
 };
 
-
 $(function(){
   var params = { allowScriptAccess: "always" };
   var atts = { id: "player" };
   var url = "http://www.youtube.com/apiplayer?enablejsapi=1&version=3";
   swfobject.embedSWF(url, "youtube_player", "500", "400", "8", null, null, params, atts);
 
-  $("#btn_load").click(function(e){
-    var id = $("#video_id").val();
-    youtube.cueVideoById(id);
-    var url = youtube.getVideoUrl();
-    $("#video_url").html(
-      $("<a>").attr("href", url).text(url)
-    );
+  $("#btn_search").click(function(e){
+    var word = $("#text_search").val();
+    $.getJSON(search_api, {word: word}, function(res){
+      console.log(res);
+      $("h1").text(res.title);
+      youtube.cueVideoById(res.video_id);
+      var url = youtube.getVideoUrl();
+      $("#video_url").html(
+        $("<a>").attr("href", url).text(url)
+      );
+    });
   });
 
   var btn_play = $("#btn_play");
