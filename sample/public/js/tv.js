@@ -19,7 +19,7 @@ var onYouTubeStateChange = function(status){
   case 1:
     var duration = youtube.getDuration();
     $("#range_seek").attr("max", duration);
-    remote.emit("get_duration", duration);
+    remote.push("get_duration", duration);
     break;
   };
 };
@@ -72,7 +72,7 @@ $(function(){
       var time = youtube.getCurrentTime();
       $("#range_seek").val(time);
       $("#text_seek").val(time);
-      remote.emit("seek", time);
+      remote.push("seek", time);
     }
   }, 1000);
 });
