@@ -82,6 +82,10 @@ tv.on("change_color", function(data){ // regist "change_color" event
 });
 ```
 
+Samples
+-------
+* https://github.com/shokai/sinatra-multi-screen/tree/master/sample
+
 
 Contributing
 ------------
