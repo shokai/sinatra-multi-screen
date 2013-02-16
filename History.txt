@@ -1,0 +1,4 @@
+=== 0.0.1 2013-02-06
+
+* dispatch UI Event on TV from Remote
+* push event from TV to Remote
