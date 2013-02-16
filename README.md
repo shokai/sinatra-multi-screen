@@ -1,5 +1,7 @@
 sinatra-multi-screen
 ====================
+Sinatra Plugin for Multi-Screen Application.
+
 
 Installation
 ------------
