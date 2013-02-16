@@ -85,6 +85,8 @@ tv.on("change_color", function(data){ // regist "change_color" event
 Samples
 -------
 * https://github.com/shokai/sinatra-multi-screen/tree/master/sample
+* http://multiscreen-youtube.herokuapp.com
+* https://github.com/shokai/multiscreen-youtube-sample
 
 
 Contributing
