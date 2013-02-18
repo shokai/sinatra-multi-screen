@@ -1,4 +1,8 @@
-=== 0.0.1 2013-02-06
+=== 0.0.2 2013-02-19
+
+* separate channels
+
+=== 0.0.1 2013-02-16
 
 * dispatch UI Event on TV from Remote
 * push event from TV to Remote
