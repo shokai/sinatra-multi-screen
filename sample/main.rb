@@ -8,8 +8,14 @@ helpers do
   end
 end
 
-CometIO.on :connect do |session|
-  puts "new client <#{session}>"
+MultiScreen.on :connect do |client|
+  puts "new client #{client.inspect}"
+  p MultiScreen.channels
+end
+
+MultiScreen.on :disconnect do |client|
+  puts "client disconnect - #{client.inspect}"
+  p MultiScreen.channels
 end
 
 before '/*' do
