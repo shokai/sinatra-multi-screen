@@ -17,5 +17,5 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
   gem.add_dependency 'sinatra', '>= 1.3.3'
-  gem.add_dependency 'sinatra-cometio', '>= 0.1.1'
+  gem.add_dependency 'sinatra-cometio', '>= 0.1.2'
 end
