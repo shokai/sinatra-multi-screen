@@ -1,5 +1,7 @@
 - content_for :html_head do
   %title= @title
+  :javascript
+    var channel = "#{@channel}";
 
 - content_for :html_foot do
   %script{:src => "#{app_root}/js/jquery.js"}

@@ -2,6 +2,7 @@
   %title= @title
   :javascript
     var search_api = "#{app_root}/search.json";
+    var channel = "#{@channel}"
 
 - content_for :html_foot do
   %script{:src => "#{app_root}/js/jquery.js"}
