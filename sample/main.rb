@@ -8,8 +8,14 @@ helpers do
   end
 end
 
-CometIO.on :connect do |session|
-  puts "new client <#{session}>"
+MultiScreen.on :connect do |client|
+  puts "new client #{client.inspect}"
+  p MultiScreen.channels
+end
+
+MultiScreen.on :disconnect do |client|
+  puts "client disconnect - #{client.inspect}"
+  p MultiScreen.channels
 end
 
 before '/*' do
@@ -20,11 +26,13 @@ get '/' do
   haml :index
 end
 
-get '/tv' do
+get '/tv/:channel' do
+  @channel = params[:channel]
   haml :tv
 end
 
-get '/remote' do
+get '/remote/:channel' do
+  @channel = params[:channel]
   haml :remote
 end
 

@@ -1,5 +1,5 @@
 var io = new CometIO().connect();
-var screen = new MultiScreen(io, {type: "tv"});
+var screen = new MultiScreen(io, {type: "tv", channel: channel});
 var remote = screen.remote;
 
 io.on("connect", function(session){
