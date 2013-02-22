@@ -1,0 +1,18 @@
+- content_for :html_head do
+  %title= @title
+  :javascript
+    var channel = "#{@channel}"
+
+- content_for :html_foot do
+  %script{:src => "#{app_root}/js/jquery.js"}
+  %script{:src => cometio_js}
+  %script{:src => multi_screen_js}
+  %script{:src => "#{app_root}/js/tv.js"}
+
+%div#header
+  %a{:href => app_root} home
+  %h1 TV
+%div#main
+  %span.btn#btn_red{:type => :button, 'x-color' => '#FAA'} id btn_red
+  %span.btn#btn_green{:type => :button, 'x-color' => '#AFA'} id btn_green
+  %span.btn#btn_blue{:type => :button, 'x-color' => '#AAF'} id btn_blue

@@ -1,0 +1,30 @@
+
+$font_black : #222;
+
+@mixin content {
+  div {
+    margin : 10px;
+    font-size : 95%;
+  }
+}
+
+body {
+  @include content;
+  background-color : #EEE;
+  color : $font_black;
+}
+
+input {
+  font-size : medium;
+}
+
+.btn {
+  padding : 5px;
+  background-color : #DDD;
+  border : 2px solid #BBB;
+  border-radius : 8px;
+}
+
+input.range {
+  width : 300px;
+}

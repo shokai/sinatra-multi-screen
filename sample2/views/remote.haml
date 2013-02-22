@@ -1,0 +1,28 @@
+- content_for :html_head do
+  %title= @title
+  :javascript
+    var channel = "#{@channel}";
+
+- content_for :html_foot do
+  %script{:src => "#{app_root}/js/jquery.js"}
+  %script{:src => cometio_js}
+  %script{:src => multi_screen_js}
+  %script{:src => "#{app_root}/js/remote.js"}
+
+%div#header
+  %a{:href => app_root} home
+  %h1 Remote
+%div#main
+  %div
+    %span selector :
+    %select#selector
+      %option #btn_red
+      %option #btn_green
+      %option #btn_blue
+  %div
+    %span event :
+    %select#event_name
+      %option click
+      %option mouseover
+  %div
+    %input#btn_dispatch{:type => :button, :value => "dispatch"}
