@@ -40,7 +40,7 @@ run Sinatra::Application
 Remote Side
 ```javascript
 var io = new CometIO().connect();
-var screen = new MultiScreen(io, {type: "remote"});
+var screen = new MultiScreen(io, {type: "remote", channel: "1"});
 var tv = screen.tv;
 
 io.on("connect", function(session){
@@ -54,7 +54,8 @@ TV Side
 ```
 ```javascript
 var io = new CometIO().connect();
-var screen = new MultiScreen(io, {type: "tv"});
+var screen = new MultiScreen(io, {type: "tv", channel: "1"});
+var remote = screen.remote;
 
 $(function(){
   $("#btn").click(function(e){ // regist click event
@@ -67,11 +68,8 @@ $(function(){
 
 TV Side
 ```javascript
-var io = new CometIO().connect();
-var screen = new MultiScreen(io, {type: "tv"});
-
 io.on("connect", function(session){
-  screen.remote.push("change_color", {color: #FF0000"});  // push "change_color" event to Remote
+  remote.push("change_color", {color: #FF0000"});  // push "change_color" event to Remote
 };
 ```
 
