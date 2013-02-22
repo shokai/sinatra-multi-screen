@@ -1,6 +1,6 @@
 helpers do
   def app_name
-    "Multi-Screen Video Player"
+    "Sinatra-Multi-Screen Sample"
   end
 
   def app_root
@@ -34,16 +34,6 @@ end
 get '/remote/:channel' do
   @channel = params[:channel]
   haml :remote
-end
-
-get '/search.json' do
-  content_type 'application/json'
-  word = params[:word]
-  begin
-    YoutubeSearch.search(word).first.to_json
-  rescue => e
-    throw :halt, [500, 'Internal Server Error']
-  end
 end
 
 get '/:source.css' do

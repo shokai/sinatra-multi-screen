@@ -1,31 +1,18 @@
 - content_for :html_head do
   %title= @title
   :javascript
-    var search_api = "#{app_root}/search.json";
     var channel = "#{@channel}"
 
 - content_for :html_foot do
   %script{:src => "#{app_root}/js/jquery.js"}
   %script{:src => cometio_js}
   %script{:src => multi_screen_js}
-  %script{:src => "#{app_root}/js/swfobject.js"}
   %script{:src => "#{app_root}/js/tv.js"}
 
 %div#header
   %a{:href => app_root} home
   %h1 TV
 %div#main
-  %div#youtube_player
-  %div#video_url
-  %div#ctrl
-    %p
-      %input#text_search{:type => :text, :value => 'ロシア'}
-      %input#btn_search.btn{:type => :button, :value => 'search'}
-    %p
-      %input#btn_play.btn{:type => :button, :value => 'play'}
-    %p
-      %input#range_seek.range{:type => :range, :min => 0}
-      %input#text_seek{:type => :text, :readonly => true, :size => 7}
-    %p
-      %input#btn_seekback.btn{:type => :button, :value => '<<'}
-      %input#btn_seek.btn{:type => :button, :value => '>>'}
+  %span.btn#btn_red{:type => :button, 'x-color' => '#FAA'} id btn_red
+  %span.btn#btn_green{:type => :button, 'x-color' => '#AFA'} id btn_green
+  %span.btn#btn_blue{:type => :button, 'x-color' => '#AAF'} id btn_blue

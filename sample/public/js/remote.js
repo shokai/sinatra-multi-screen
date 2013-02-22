@@ -4,42 +4,21 @@ var tv = screen.tv;
 
 io.on("connect", function(session){
   console.log("connect!! "+session);
+});
 
-  $("#btn_search").click(function(e){
-    var word = $("#text_search").val();
-    tv.$("#text_search").val(word);
-    tv.$("#btn_search").click();
-  });
+$(function(){
+  generate_code();
+  $("select").change(generate_code);
 
-  $("#text_search").keyup(function(e){
-    var word = $("#text_search").val();
-    console.log(word);
-    tv.$("#text_search").val(word);
-  });
-
-  $("#btn_play").click(function(e){
-    tv.$("#btn_play").click();
-  });
-
-  $("#btn_seek").click(function(e){
-    tv.$("#btn_seek").click();
-  });
-  $("#btn_seekback").click(function(e){
-    tv.$("#btn_seekback").click();
-  });
-
-  var range_seek = $("#range_seek");
-  range_seek.change(function(e){
-    tv.$("#range_seek").val( range_seek.val() );
-    tv.$("#range_seek").change();
-  });
-
-  tv.on("seek", function(time){
-    $("#text_seek").val(time);
-    range_seek.val(time);
-  });
-
-  tv.on("get_duration", function(duration){
-    range_seek.attr("max", duration);
+  $("#btn_dispatch").click(function(e){
+    // tv.$("#btn_red").click();
+    // tv.$("#btn_blue").mouseover();
+    eval( $("#code").val() );
   });
 });
+
+var generate_code = function(){
+  var selector = $("#selector").val();
+  var event_name = $('#event_name').val();
+  $("#code").val( 'tv.$("'+selector+'").'+event_name+'();' );
+};

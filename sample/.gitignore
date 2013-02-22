@@ -1,7 +1,0 @@
-*.tmp
-*~
-*#*
-vendor
-.sass-cache
-.bundle
-config.yml

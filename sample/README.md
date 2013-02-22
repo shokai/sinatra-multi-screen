@@ -1,5 +1,5 @@
-Multi-Screen Video Player
-=========================
+Sinatra-Multi-Screen Sample
+===========================
 
 * Ruby 1.8.7+ or 1.9.2+
 * sinatra-multi-screen with Sinatra1.3+

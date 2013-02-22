@@ -13,15 +13,19 @@
   %a{:href => app_root} home
   %h1 Remote
 %div#main
-  %div#ctrl
-    %p
-      %input#text_search{:type => :text, :value => 'ロシア'}
-      %input#btn_search.btn{:type => :button, :value => 'search'}
-    %p
-      %input#btn_play.btn{:type => :button, :value => 'play'}
-    %p
-      %input#range_seek.range{:type => :range, :min => 0}
-      %input#text_seek{:type => :text, :readonly => true, :size => 7}
-    %p
-      %input#btn_seekback.btn{:type => :button, :value => '<<'}
-      %input#btn_seek.btn{:type => :button, :value => '>>'}
+  %div
+    %span selector :
+    %select#selector
+      %option #btn_red
+      %option #btn_green
+      %option #btn_blue
+  %div
+    %span event :
+    %select#event_name
+      %option click
+      %option mouseover
+  %div
+    %span code :
+    %input#code{:type => :text, :size => 50}
+  %div
+    %input#btn_dispatch{:type => :button, :value => "dispatch"}
