@@ -1,10 +1,8 @@
-
-
 module Sinatra
 
   class Application
 
-    CometIO.on :__multiscreen__event do |data, from|
+    CometIO.on :__multiscreen__data do |data, from|
       opts = data["options"]
       raise ArgumentError, 'option is empty'  if !opts or opts.empty?
       raise ArgumentError, 'channel is empty' if opts["channel"].empty?
@@ -19,7 +17,7 @@ module Sinatra
                "tv"
              end
       MultiScreen.channels[opts["channel"]][type].each do |session_id|
-        CometIO.push :__multiscreen__event, data, {:to => session_id}
+        CometIO.push :__multiscreen__data, data, {:to => session_id}
       end
     end
 
