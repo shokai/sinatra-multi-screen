@@ -10,6 +10,7 @@ module Sinatra
       unless MultiScreen.channels[opts["channel"]][opts["type"]].include? from
         raise StandardError, "client <#{from}> is not member of channel <#{opts['channel']}>"
       end
+      MultiScreen.emit data["event"], data["data"], {:session => from, :channel => opts["channel"], :type => opts["type"]}
       type = case opts["type"]
              when "tv"
                "remote"

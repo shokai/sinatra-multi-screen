@@ -18,6 +18,10 @@ MultiScreen.on :disconnect do |client|
   p MultiScreen.channels
 end
 
+MultiScreen.on :ui_event do |data, from|
+  puts "UI Event $('#{data['selector']}').#{data['event']}(#{data['arg']}) -- from #{from.inspect}"
+end
+
 before '/*' do
   @title = app_name
 end
