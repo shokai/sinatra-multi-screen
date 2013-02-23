@@ -92,6 +92,26 @@ remote.on("mode", function(data){
 });
 ```
 
+
+### Events on Server
+
+Sinatra Side
+```ruby
+MultiScreen.on :connect do |client|
+  puts "new client #{client.inspect}"
+  p MultiScreen.channels
+end
+
+MultiScreen.on :disconnect do |client|
+  puts "client disconnect - #{client.inspect}"
+  p MultiScreen.channels
+end
+
+MultiScreen.on :ui_event do |data, from|
+  puts "Remote --(dispatch UI Event)--> TV"
+end
+```
+
 Samples
 -------
 * https://github.com/shokai/sinatra-multi-screen/tree/master/sample
