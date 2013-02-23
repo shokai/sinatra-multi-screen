@@ -1,3 +1,4 @@
+// Remote Side
 var io = new CometIO().connect();
 var screen = new MultiScreen(io, {type: "remote", channel: channel});
 var tv = screen.tv;
@@ -6,6 +7,7 @@ io.on("connect", function(session){
   console.log("connect!! "+session);
 });
 
+// from TV
 tv.on("message", function(msg){
   console.log(msg);
 });
@@ -15,9 +17,7 @@ $(function(){
   $("select").change(generate_code);
 
   $("#btn_dispatch").click(function(e){
-    // tv.$("#btn_red").click();
-    // tv.$("#btn_blue").mouseover();
-    eval( $("#code").val() );
+    eval( $("#code").val() ); // dispatch UI Event on TV
   });
 });
 

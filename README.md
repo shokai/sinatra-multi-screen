@@ -35,7 +35,7 @@ run Sinatra::Application
 <script src="<%= multi_screen_js %>"></script>
 ```
 
-### Remote --(dispatch UI Event)-> TV
+### Remote --(dispatch UI Event)--> TV
 
 Remote Side
 ```javascript
@@ -68,15 +68,27 @@ $(function(){
 
 TV Side
 ```javascript
-io.on("connect", function(session){
-  remote.push("change_color", {color: #FF0000"});  // push "change_color" event to Remote
-};
+remote.push("change_color", {color: #FF0000"});  // push "change_color" event to Remote
 ```
 
 Remote Side
 ```javascript
 tv.on("change_color", function(data){ // regist "change_color" event
   $("body").css("background-color", data.color);
+});
+```
+
+### Remote --(push event)--> TV
+
+Remote Side
+```javascript
+tv.push("mode", "fullscreen");  // push "mode" to TV
+```
+
+TV Side
+```javascript
+remote.on("mode", function(data){
+  console.log(data);
 });
 ```
 
