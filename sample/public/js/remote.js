@@ -6,6 +6,10 @@ io.on("connect", function(session){
   console.log("connect!! "+session);
 });
 
+tv.on("message", function(msg){
+  console.log(msg);
+});
+
 $(function(){
   generate_code();
   $("select").change(generate_code);
