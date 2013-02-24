@@ -44,8 +44,12 @@ var screen = new MultiScreen(io, {type: "remote", channel: "1"});
 var tv = screen.tv;
 
 io.on("connect", function(session){
-  tv.$("#btn").click();  // dispatch click event on TV Side
+  tv.$("#btn").click();  // dispatch CLICK event on TV Side
 };
+
+tv.on("ui_event", function(data){  // UI Event echo back from TV
+  alert(data.event+' was dispatched on TV-side '+data.selector);
+});
 ```
 
 TV Side
