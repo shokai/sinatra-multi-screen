@@ -12,6 +12,11 @@ tv.on("message", function(msg){
   console.log(msg);
 });
 
+// UI Event echo back from TV
+tv.on("ui_event", function(data){
+  $("#message").text(data.event+' was dispatched on TV-side '+data.selector);
+});
+
 $(function(){
   generate_code();
   $("select").change(generate_code);
