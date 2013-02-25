@@ -45,6 +45,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  event_emitter
   foreman
   haml
   json
