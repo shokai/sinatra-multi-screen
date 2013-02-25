@@ -9,18 +9,16 @@ io.on("connect", function(session){
 
 // catch UI Event from Remote
 remote.on("ui_event", function(data){
-  console.log(data);
+  $("#message").text(JSON.stringify(data));
 });
 
 $(function(){
   $(".btn").click(function(e){
     alert(e.currentTarget.innerText);
-    remote.push("message", "click button #"+e.currentTarget.id);  // push to Remote
   });
 
   $(".btn").mouseover(function(e){
     var color = e.currentTarget.attributes['x-color'].value;
     $("body").css("background-color", color);
-    remote.push("message", "mouse over "+color);  // push to Remote
   });
 });

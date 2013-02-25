@@ -7,11 +7,6 @@ io.on("connect", function(session){
   console.log("connect!! "+session);
 });
 
-// from TV
-tv.on("message", function(msg){
-  console.log(msg);
-});
-
 // UI Event echo back from TV
 tv.on("ui_event", function(data){
   $("#message").text(data.event+' was dispatched on TV-side '+data.selector);
