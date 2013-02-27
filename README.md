@@ -116,6 +116,25 @@ MultiScreen.on :ui_event do |data, from|
 end
 ```
 
+
+### Server ---(push event)--> TV or Remote
+
+Sinatra Side
+```ruby
+data = {:message => 'hello!!'}
+MultiScreen.push :foo, data  # to all TV and Remote
+MultiScreen.push :foo, data, {:type => "tv"}  # to all TV
+MultiScreen.push :foo, data, {:type => "remote", :channel => "1"}
+```
+
+TV or Remote
+```javascript
+screen.on("foo", function(data){
+  alert(data.message);
+});
+```
+
+
 Samples
 -------
 * https://github.com/shokai/sinatra-multi-screen/tree/master/sample
