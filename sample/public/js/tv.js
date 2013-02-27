@@ -12,6 +12,11 @@ remote.on("ui_event", function(data){
   $("#message").text(JSON.stringify(data));
 });
 
+// push from server
+screen.on("new_client", function(e){
+  $("#message").text("new Remote <"+e.session+"> available.");
+});
+
 $(function(){
   $(".btn").click(function(e){
     alert(e.currentTarget.innerText);

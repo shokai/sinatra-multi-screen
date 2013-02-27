@@ -12,6 +12,11 @@ tv.on("ui_event", function(data){
   $("#message").text(data.event+' was dispatched on TV-side '+data.selector);
 });
 
+// push from server
+screen.on("new_client", function(e){
+  $("#message").text("new TV <"+e.session+"> available.");
+});
+
 $(function(){
   generate_code();
   $("select").change(generate_code);

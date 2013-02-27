@@ -11,6 +11,11 @@ end
 MultiScreen.on :connect do |client|
   puts "new client #{client.inspect}"
   p MultiScreen.channels
+  to = case client[:type]
+       when "tv" then "remote"
+       when "remote" then "tv"
+       end
+  MultiScreen.push :new_client, client, {:type => to, :channel => client[:channel]}
 end
 
 MultiScreen.on :disconnect do |client|
