@@ -127,7 +127,7 @@ MultiScreen.push :foo, data, {:type => "tv"}  # to all TV
 MultiScreen.push :foo, data, {:type => "remote", :channel => "1"}
 ```
 
-TV or Remote
+TV or Remote Side
 ```javascript
 screen.on("foo", function(data){
   alert(data.message);
