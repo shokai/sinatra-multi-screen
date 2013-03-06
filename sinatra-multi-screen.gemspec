@@ -4,7 +4,7 @@ require 'sinatra-multi-screen/version'
 
 Gem::Specification.new do |gem|
   gem.name          = "sinatra-multi-screen"
-  gem.version       = SinatraMultiScreen::VERSION
+  gem.version       = Sinatra::MultiScreen::VERSION
   gem.authors       = ["Sho Hashimoto"]
   gem.email         = ["hashimoto@shokai.org"]
   gem.description   = %q{Sinatra Plugin for Multi-Screen Application.}

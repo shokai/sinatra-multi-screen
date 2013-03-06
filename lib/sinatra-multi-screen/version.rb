@@ -1,3 +1,5 @@
-module SinatraMultiScreen
-  VERSION = "0.0.6"
+module Sinatra
+  module MultiScreen
+    VERSION = "0.0.6"
+  end
 end
