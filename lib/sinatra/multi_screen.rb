@@ -1,6 +1,8 @@
 require File.expand_path '../sinatra-multi-screen', File.dirname(__FILE__)
 require 'sinatra/cometio'
-require File.expand_path 'application', File.dirname(__FILE__)
+require File.expand_path '../sinatra-multi-screen/application', File.dirname(__FILE__)
+
+Sinatra.register Sinatra::MultiScreen
 
 class MultiScreen
 
