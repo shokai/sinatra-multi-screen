@@ -1,3 +1,7 @@
+=== 0.0.7 2013-03-06
+
+* use Sinatra.register
+
 === 0.0.6 2013-02-27
 
 * Server push to TV or Remote
